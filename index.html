@@ -2,106 +2,132 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Brahma Strategy – VVIP Access</title>
+<title>Brahma Strategy – VVIP</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- FONT -->
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
+<!-- Styles -->
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
 body{
-  background:#000;
-  color:#fff;
-  overflow-x:hidden;
+background:#000;
+color:#fff;
+overflow-x:hidden;
 }
 
-/* TOP BRAND */
 header{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:rgba(0,0,0,0.8);
-  backdrop-filter:blur(10px);
-  padding:12px;
-  text-align:center;
-  z-index:1000;
-}
-header h1{
-  color:#00ff9c;
-  letter-spacing:2px;
+text-align:center;
+padding:12px;
+font-size:22px;
+font-weight:700;
+color:#00ff99;
+background:#000;
+border-bottom:1px solid #00ff9940;
 }
 
-/* TRADINGVIEW */
 .chart{
-  margin-top:70px;
-  height:60vh;
-}
-iframe{
-  width:100%;
-  height:100%;
-  border:none;
+width:100%;
+height:320px;
 }
 
-/* JOIN CARD */
-.join{
-  background:rgba(20,20,20,0.9);
-  margin:30px auto;
-  padding:20px;
-  width:92%;
-  max-width:450px;
-  border-radius:16px;
-  box-shadow:0 0 25px rgba(0,255,156,0.2);
-}
-.join h2{
-  text-align:center;
-  margin-bottom:15px;
-  color:#00ff9c;
-}
-.join input,select{
-  width:100%;
-  padding:12px;
-  margin:8px 0;
-  border-radius:10px;
-  border:none;
-  outline:none;
-}
-.join button{
-  width:100%;
-  padding:14px;
-  margin-top:10px;
-  border:none;
-  border-radius:12px;
-  background:linear-gradient(90deg,#00ff9c,#00c2ff);
-  color:#000;
-  font-weight:700;
-  cursor:pointer;
-  animation:pulse 1.5s infinite;
+.container{
+max-width:420px;
+margin:20px auto;
+padding:20px;
+background:rgba(0,0,0,0.8);
+border-radius:18px;
+box-shadow:0 0 30px #00ff9940;
 }
 
-@keyframes pulse{
-  0%{box-shadow:0 0 0 rgba(0,255,156,0.6);}
-  70%{box-shadow:0 0 20px rgba(0,255,156,0.9);}
-  100%{box-shadow:0 0 0 rgba(0,255,156,0.6);}
+h2{
+text-align:center;
+margin-bottom:15px;
+color:#00ff99;
 }
 
-/* PAYMENT INFO */
-.pay{
-  text-align:center;
-  font-size:13px;
-  opacity:0.85;
+input,select,button{
+width:100%;
+padding:14px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+font-size:15px;
 }
 
-/* BACKGROUND IMAGE */
+input,select{
+background:#111;
+color:#fff;
+}
+
+button{
+background:linear-gradient(90deg,#00ff99,#00c3ff);
+color:#000;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{transform:scale(1.05)}
+
+.payinfo{
+text-align:center;
+font-size:13px;
+margin-top:12px;
+color:#ccc;
+}
+
+/* Popup */
+.popup{
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.8);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:999;
+}
+
+.popup-box{
+background:#111;
+padding:25px;
+border-radius:15px;
+text-align:center;
+animation:zoom .4s;
+}
+
+@keyframes zoom{
+from{transform:scale(0.5);opacity:0}
+to{transform:scale(1);opacity:1}
+}
+
+.success{
+color:#00ff99;
+font-size:18px;
+margin-bottom:10px;
+}
+
+.close{
+margin-top:15px;
+background:#00ff99;
+border-radius:8px;
+padding:10px;
+color:#000;
+font-weight:600;
+}
+
+/* Background image */
 .bg{
-  position:fixed;
-  bottom:0;
-  right:0;
-  width:100%;
-  height:100%;
-  background:url("bg.jpg") center/cover no-repeat;
-  opacity:0.15;
-  z-index:-1;
+position:fixed;
+bottom:0;
+right:0;
+width:100%;
+height:100%;
+background:url('https://images.unsplash.com/photo-1621761191319-c6fb62004040') center/cover no-repeat;
+opacity:0.15;
+z-index:-1;
 }
 </style>
 </head>
@@ -110,100 +136,56 @@ iframe{
 
 <div class="bg"></div>
 
-<header>
-  <h1>🔱 BRAHMA STRATEGY – VVIP</h1>
-</header>
+<header>🔱 BRAHMA STRATEGY – VVIP</header>
 
-<!-- TRADINGVIEW -->
+<!-- TradingView Chart -->
 <div class="chart">
-<iframe src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=5&theme=dark&style=1"></iframe>
+<iframe src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=5&theme=dark&style=1&locale=en"
+style="width:100%;height:100%;border:none;"></iframe>
 </div>
 
-<!-- JOIN -->
-<div class="join">
+<div class="container">
 <h2>Join VVIP Group</h2>
 
 <input id="name" placeholder="Full Name">
 <input id="email" placeholder="Email">
 <input id="phone" placeholder="WhatsApp Number">
-<input id="amount" type="number" placeholder="Amount">
-
+<input id="amount" placeholder="Amount">
 <select id="method">
-  <option value="UPI">UPI</option>
-  <option value="USDT">USDT (TRC20)</option>
-  <option value="BANK">Bank Transfer</option>
+<option value="">Select Payment Method</option>
+<option>UPI</option>
+<option>USDT (TRC20)</option>
+<option>Bank Transfer</option>
 </select>
 
-<button onclick="sendWA()">JOIN VVIP NOW</button>
+<button onclick="join()">JOIN VVIP NOW</button>
 
-<div class="pay">
-<br>
+<div class="payinfo">
 UPI: akkiikka83-1@okhdfcbank<br>
-USDT(TRC20): TBpCiT6AE3xXCf7ZG3JUWMYenNv2517Trs
+USDT (TRC20): TBpCiT6AE3xXCf7ZG3JUWMYenNv2517Trs
+</div>
+</div>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+<div class="popup-box">
+<div class="success">✅ Payment Request Submitted</div>
+<p>Admin will verify & confirm on WhatsApp</p>
+<button class="close" onclick="closePop()">OK</button>
 </div>
 </div>
 
 <script>
-function sendWA(){
-const n=name.value.trim(),
-e=email.value.trim(),
-p=phone.value.trim(),
-a=amount.value.trim(),
-m=method.value;
+function join(){
+let n=name.value,e=email.value,p=phone.value,a=amount.value,m=method.value;
+if(!n||!e||!p||!a||!m){alert("Fill all details");return;}
 
-if(!n||!e||!p||!a){alert("Fill all details");return;}
+let msg=`Brahma Strategy VVIP Join Request%0A%0AName: ${n}%0AEmail: ${e}%0APhone: ${p}%0AAmount: ${a}%0APayment: ${m}`;
+window.open(`https://wa.me/919630409205?text=${msg}`,'_blank');
 
-const msg=`🔥 BRAHMA STRATEGY VVIP 🔥
-Name: ${n}
-Email: ${e}
-Phone: ${p}
-Amount: ${a}
-Payment: ${m}
-
-Screenshot / TXID shared.`;
-
-window.open("https://wa.me/919630409205?text="+encodeURIComponent(msg));
+document.getElementById("popup").style.display="flex";
 }
-</script>
-<div id="popup" style="
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,0.85);
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:9999;">
 
-<div style="
-background:#111;
-padding:25px;
-border-radius:16px;
-width:90%;
-max-width:350px;
-text-align:center;
-box-shadow:0 0 30px #00ff9c;">
-
-<h2 style="color:#00ff9c;">VVIP Access</h2>
-<p>Limited seats available</p>
-
-<p style="font-size:13px;">
-UPI: akkiikka83-1@okhdfcbank<br>
-USDT(TRC20): TBpCiT6AE3xXCf7ZG3JUWMYenNv2517Trs
-</p>
-
-<button onclick="closePop()" style="
-margin-top:10px;
-padding:12px 20px;
-border:none;
-border-radius:10px;
-background:#00ff9c;
-font-weight:bold;">Continue</button>
-
-</div>
-</div>
-
-<script>
 function closePop(){
 document.getElementById("popup").style.display="none";
 }
